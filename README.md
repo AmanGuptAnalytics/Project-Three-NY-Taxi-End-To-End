@@ -20,16 +20,16 @@ After that the data is transformed into staging table and fact and dimension tab
 and two dashboards are made to help personas like a cabbie to understand where and at what time most number of cabs are required.
 And to understand managers about the revenue collected over two year period.
 
-### First DAG: " *data_ingestion_gcs_dag.py* "
+
 
 
 ## Setup of Airflow
 
-
+### First DAG: " *data_ingestion_gcs_dag.py* "
 
 The first dag is this 
 
-![data_ingestion_gcs_dag.py](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/dags/data_ingestion_gcs_dag.py)
+[data_ingestion_gcs_dag.py](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/dags/data_ingestion_gcs_dag.py)
 
 This script is used to make dags such that this execution flow runs 
 ```
@@ -48,7 +48,7 @@ The second dag has three tasks:
 ```
 
 The second dag is this : 
-![gcs_to_bs_dag](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/dags/gcs_to_bq_dag.py)
+[gcs_to_bs_dag](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/dags/gcs_to_bq_dag.py)
 
 Below are the descriptions of tasks in this DAG:
 
@@ -56,4 +56,19 @@ Below are the descriptions of tasks in this DAG:
 + Next, external table is made in bigquery by using the task bigquery_external_table_task which takes the data from organized gcs buck and creates external tables.
 + The third task is to create partitioned tables in bigquery, this is done by the task:  bq_create_partitioned_table_job. 
 
-When the data is partitioned
+### Modelling in dbt 
+
+After the data is written to bigquery tables it must be modelled properly to serve the needs of the business. For this data dbt cloud was used
+dbt cloud is an intutive and easy to use tool for transformations related to data. 
+
+The first step was making ***staging tables***:
+
++ **stg_green_tripdata.sql** 
+     + It is a staging table where the data was first ranked using window funtion row_number(), partitioned by vendorid and lpep_pickup_datetime. A surrogate key was also made using dbt_utils.surrogate_key and was called tripid. 
+     + Next the columns are assigned respective data types by using CAST function. 
+
++ **stg_green_tripdata.sql** 
+     + In a similar way as in above staging table the data is first passed over a window function and then various columns are assigned proper datatypes using the CAST function.
+
++ ***Testing using schema.yml***
+     + 
