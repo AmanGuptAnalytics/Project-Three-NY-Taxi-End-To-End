@@ -55,20 +55,16 @@ Below are the descriptions of tasks in this DAG:
 + The above dag moves the files from gcs raw folder to organized gcs folders, this is done bigquery_external_table_taskmove_files_gcs_task.
 + Next, external table is made in bigquery by using the task bigquery_external_table_task which takes the data from organized gcs buck and creates external tables.
 + The third task is to create partitioned tables in bigquery, this is done by the task:  bq_create_partitioned_table_job. 
+*** Modeling in dbt
 
-### Modelling in dbt 
+After the data is written into bigquery tables, it must be adequately modeled to serve the needs of the business. For this data, the dbt cloud was used dbt cloud is an intuitive and easy-to-use tool for transformations related to information.
 
-After the data is written to bigquery tables it must be modelled properly to serve the needs of the business. For this data dbt cloud was used
-dbt cloud is an intutive and easy to use tool for transformations related to data. 
 
 The first step was making ***staging tables***:
+***stg_green_tripdata.sql***
+     + It is a staging table where the data was first ranked using the window function row_number(), partitioned by vendorid and lpep_pickup_datetime. A surrogate key was also made using dbt_utils.surrogate_key and was called tripid.
+     + Next, the columns are assigned respective data types using the CAST function.
+***stg_green_tripdata.sql***
+     + Similarly to the above staging table, the data is first passed over a window function, and then various columns are assigned proper datatypes using the CAST function.
+Testing using schema.yml +
 
-+ **stg_green_tripdata.sql** 
-     + It is a staging table where the data was first ranked using window funtion row_number(), partitioned by vendorid and lpep_pickup_datetime. A surrogate key was also made using dbt_utils.surrogate_key and was called tripid. 
-     + Next the columns are assigned respective data types by using CAST function. 
-
-+ **stg_green_tripdata.sql** 
-     + In a similar way as in above staging table the data is first passed over a window function and then various columns are assigned proper datatypes using the CAST function.
-
-+ ***Testing using schema.yml***
-     + 
