@@ -58,4 +58,5 @@
     docker-compose down --volumes --remove-orphans
     ```
     
+    This is how the docker is setup to run Airflow, the dags are run in Airflow as shown above.
 
