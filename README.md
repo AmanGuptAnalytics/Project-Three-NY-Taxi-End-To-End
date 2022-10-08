@@ -68,3 +68,43 @@ The first step was making ***staging tables***:
      + Similarly to the above staging table, the data is first passed over a window function, and then various columns are assigned proper datatypes using the CAST function.
 Testing using schema.yml +
 
+### **Modelling the Data**
+
+The first step in modelling is to create the staging tables from the data lake. There are two staging tables created in this project which are for green_tripdata and yellow_tripdata respectively.
+
+The purpose of staging table here is to make the source tables for fact and dimension table. Also to normalize or denormalize the data as per the users need.
+
+In this project the columns to be used in fact and dimension tables were ingested to the staging table and assigned the datatype using cast function. 
+
+The following Tables are made
++   stg_green_tripdata
++   stg_yellow_tripdata
+
+
+
+### **Testing the data**
+
+A step while staging the tables is testing. dbt offers several types of testing out of which the following tests are used:
+
++ unique 
++ not_null
++ relationships
++ accepted_values
+
+In detail how and to which columns these tests are applied can be found payment_type_values [here](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/tree/main/dbt%20cloud%20model/models/staging).
+
+
+### **Fact & Dimension tables**
+
+The fact and dimension tables are the next and final step of the data transformation.
+This is the Flow of the data between various tables to make the fact and dimension tables.
+Some of the fields in the tables are again checked via testing and are available [here](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/dbt%20cloud%20model/models/core/schema.yml).
+
+The following tables were made:
++ dim_zones
++ dm_monthly_zone_revenue.sql 
++ fact_trips
+
+
+![Flow of Data](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/docs/Fact_Trips.png)
+
