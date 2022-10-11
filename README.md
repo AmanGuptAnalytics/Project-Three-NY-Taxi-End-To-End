@@ -3,11 +3,10 @@
 
 This is an end-to-end project which involves the following technologies. 
 
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-<img src="https://img.shields.io/badge/airflow-000000?style=for-the-badge&logo=apacheairflow&logoColor=white" />
-<img src="https://img.shields.io/badge/Google Cloud-4885ed?style=for-the-badge&logo=googlecloud&logoColor=white" />
-<img src="https://img.shields.io/badge/dbt-FFFFFF?style=for-the-badge&logo=dbt&logoColor=orange" /> 
-<img src="https://img.shields.io/badge/Tableau-FFFFFF?style=for-the-badge&logo=tableau&logoColor=blue" />
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" /> <img src="https://img.shields.io/badge/Google Cloud-4885ed?style=for-the-badge&logo=googlecloud&logoColor=white" /> <img src="https://img.shields.io/badge/airflow-000000?style=for-the-badge&logo=apacheairflow&logoColor=white" /> <img src="https://img.shields.io/badge/dbt-FFFFFF?style=for-the-badge&logo=dbt&logoColor=orange" /> <img src="https://img.shields.io/badge/Tableau-FFFFFF?style=for-the-badge&logo=tableau&logoColor=blue" />
+
+
+
 
 
 ## Intro
