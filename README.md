@@ -115,13 +115,13 @@ The following tables were made:
 ### Understanding Revenue Dashboard One
 The end product of the data analysed are dashboards, there were two dashboards made for this data. The first dash is given as bellow. The purpose of this dashboard is to undestand the revenue by year, quater and highest revenues generated as per the pickup zone. 
 
-[Understanding Revenue Dashboard](https://public.tableau.com/app/profile/aman.gupta7841/viz/NYTAXI/Dashboard1)
+![Understanding Revenue Dashboard](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/docs/Dashboard%201%20Understanding%20revenue.png)
 
 ### Best Pickup Times for Busy Zones
 
 The second dashboard is made for Cabbies, as cabbies shall be interested to know the best pickup times and zones where he/she shall get most passangers. Understanding this the cabbie shall be able to pick the zones and times where he shall get higher chances of ride. 
 
-[Best Pickup Times for Busy Zones](https://public.tableau.com/app/profile/aman.gupta7841/viz/NYTAXI/ForCabDriver)
+![Best Pickup Times for Busy Zones]()
 
 
 This completes the New York Taxi Data project. In next project the same data is ingested using SPARK, you can find it in the repos.
