@@ -24,27 +24,31 @@ And to understand managers about the revenue collected over two year period.
 
 
 
-## **Airflow**
+## **Airflow Setup**
 
-### First DAG: " *data_ingestion_gcs_dag.py* "
+### First Airflow DAG: " *Ingesting Data to GCS Bucket* "
 
 The first dag is this 
 
 [data_ingestion_gcs_dag.py](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/dags/data_ingestion_gcs_dag.py)
 
-Order of tasks 
+Order of tasks, in the above dag is 
 ```
      download_dataset_task >> local_to_gcs_task >> rm_task
 ```
 
-The above flow runs for two taxi data which is named as yellow_taxi_data_v2 and green_taxi_data_v2.
++    Like it is given in the above task order the first task of the DAG is the download the data from the source.
++    The next step is to move the data from local storage to GCS bucket.
++    Next step is to remove the local files stored on the computer.
 
-### Second DAG: " *gcs_to_bq_dag.py* "
+The above flow runs on two taxi datas which is named as yellow_taxi_data_v2 and green_taxi_data_v2.
+
+### Second Airflow DAG: " *Moving Data from GCS to BQ* "
 
 The second dag is this : 
 [gcs_to_bs_dag](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/dags/gcs_to_bq_dag.py)
 
-Order of tasks
+Order of tasks, in the above dag is
 ``` 
      move_files_gcs_task >> bigquery_external_table_task >> bq_create_partitioned_table_job
 ```
@@ -56,9 +60,9 @@ Below are the descriptions of tasks in this DAG:
 + Next, external table is made in bigquery by using the task bigquery_external_table_task which takes the data from organized gcs bucket and creates external tables.
 + The third task is to create partitioned tables in bigquery, this is done by the task:  bq_create_partitioned_table_job. 
 
-### **Data Transformation**
+### **Data Transformations using dbt**
 
-After the data is written into bigquery tables, it must be adequately modeled to serve the needs of the business. For this data, dbt cloud was used as it is an intuitive and easy-to-use tool for data transformations.
+After the data is written into bigquery tables, it must be adequately modeled to serve the needs of the business. For this data, dbt cloud was used for data transformations.
 
 
 The first step was making ***staging tables***:
@@ -106,3 +110,4 @@ The following tables were made:
 
 ![Flow of Data](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/docs/Fact_Trips.png)
 
+[Checking](https://public.tableau.com/views/NYTAXI/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)
