@@ -121,7 +121,7 @@ The end product of the data analysed are dashboards, there were two dashboards m
 
 The second dashboard is made for Cabbies, as cabbies shall be interested to know the best pickup times and zones where he/she shall get most passangers. Understanding this the cabbie shall be able to pick the zones and times where he shall get higher chances of ride. 
 
-![Best Pickup Times for Busy Zones](https://github.com/AmanGuptAnalytics/Project-Three-NY-Taxi-End-To-End/blob/main/airflow/docs/Dashboard%202%20for%20Cab%20Driver.png)
+![Best Pickup Times for Busy Zones]()
 
 
 This completes the New York Taxi Data project. In next project the same data is ingested using SPARK, you can find it in the repos.
