@@ -1,5 +1,5 @@
 
-# Project-Three-NY-Taxi-End-To-End
+# Project-3: NY-Taxi-End-To-End
 
 This is an end-to-end project which involves the following technologies. 
 
